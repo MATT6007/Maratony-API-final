@@ -20,6 +20,8 @@ class Runner(Base):
     # role = Column(Enum(Role, name='user_roles'), nullable=False)
     disabled = Column(Boolean, default=False)
     club = Column(String(32))
+
+    # runner_competitions = relationship('RunnerCompetition', back_populates='runner')
     
     ID_address = Column(Integer, ForeignKey('addresses.ID_address'))
     address = relationship('Address', backref='runner')

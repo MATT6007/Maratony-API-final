@@ -7,6 +7,7 @@ from routers import competition_router
 from routers import sponsors_router
 from routers import sponsors_competition_router
 from routers import auth_router
+from routers import runner_router
 
 from dependencies.database import Base, engine  
 
@@ -28,6 +29,7 @@ app.include_router(competition_category_router.router)
 app.include_router(competition_router.router)
 app.include_router(sponsors_router.router)
 app.include_router(sponsors_competition_router.router) 
+app.include_router(runner_router.router) 
 
 add_pagination(app)
 

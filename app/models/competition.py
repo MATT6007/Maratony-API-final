@@ -24,7 +24,7 @@ from dependencies.database import Base
 class Competition(Base):
     __tablename__ = 'competition'
 
-    ID_competition = Column(Integer, primary_key=True, index=True)
+    ID_competition = Column(Integer, primary_key=True, index=True   )
     name = Column(String(32), nullable=False)
     date = Column(Date, nullable=False)
     location = Column(String(32), nullable=False)
