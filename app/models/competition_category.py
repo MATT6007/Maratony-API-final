@@ -2,7 +2,6 @@ from sqlalchemy import Column, Integer, String, Boolean, DECIMAL
 from sqlalchemy.ext.declarative import declarative_base
 from dependencies.database import Base
 
-
 class CompetitionCategory(Base):
     __tablename__ = 'competition_category'
 

@@ -46,28 +46,6 @@ class SponsorCompetitionRepository:
 
             return sponsors
 
-    # def get_sponsors_competition_all(self):
-    #     with Session(engine) as session:
-    #         results = (
-    #             session.query(SponsorCompetition, Sponsors, Competition)
-    #             .join(Sponsors, SponsorCompetition.ID_sponsor == Sponsors.ID_sponsor)
-    #             .join(Competition, SponsorCompetition.ID_competition == Competition.ID_competition)
-    #             .all()
-    #         )
-
-    #         sponsors_with_competitions = []
-    #         for sponsor_competition, sponsor, competition in results:
-    #             sponsors_with_competitions.append({
-    #                 "sponsor_id": sponsor.ID_sponsor,
-    #                 "sponsor_name": sponsor.name,  # Dodaj odpowiednie pole, w zależności od struktury tabeli Sponsors
-    #                 "competition_id": competition.ID_competition,
-    #                 "competition_name": competition.name,  # Dodaj odpowiednie pole, w zależności od struktury tabeli Competition
-    #                 "amount_usd": sponsor_competition.amountUSD
-    #         })
-
-    #         return sponsors_with_competitions
-
-
     def get_sponsors_competition_all(self):
         with Session(engine) as session:
             results = (

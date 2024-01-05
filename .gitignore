@@ -1,0 +1,37 @@
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+# dependencies
+/node_modules
+/.pnp
+.pnp.js
+
+# testing
+/coverage
+
+# production
+/build
+
+# misc
+.DS_Store
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+app/sql_app.db
+app/.env
+app/venv
+app/utils/__pycache__
+app/services/__pycache__
+app/schemas/__pycache__
+app/routers/__pycache__
+app/repositories/__pycache__
+app/node_modules
+app/models/__pycache__
+app/dependencies/__pycache__
+app/config/__pycache__
+app/__pycache__
+venv

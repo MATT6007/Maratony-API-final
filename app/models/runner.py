@@ -3,8 +3,6 @@ from sqlalchemy.orm import relationship
 
 from dependencies.database import Base
 
-# Base = declarative_base()
-
 class Runner(Base):
     __tablename__ = 'runner'
 
@@ -17,12 +15,9 @@ class Runner(Base):
     reset_token = Column(String)
     phone = Column(String)
     image_url = Column(String)
-    # role = Column(Enum(Role, name='user_roles'), nullable=False)
     disabled = Column(Boolean, default=False)
     club = Column(String(32))
 
-    # runner_competitions = relationship('RunnerCompetition', back_populates='runner')
-    
     ID_address = Column(Integer, ForeignKey('addresses.ID_address'))
     address = relationship('Address', backref='runner')
 

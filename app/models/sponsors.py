@@ -4,17 +4,6 @@ from sqlalchemy.ext.declarative import declarative_base
 
 from dependencies.database import Base
 
-# class Sponsors(Base):
-#     __tablename__ = 'sponsors'
-
-#     ID_sponsor = Column(Integer, primary_key=True, index=True)
-#     phone = Column(String(9), nullable=False)
-#     website = Column(String(32))
-#     email = Column(String(32), nullable=False)
-    
-#     ID_address = Column(Integer, ForeignKey('addresses.ID_address'))
-#     address = relationship('Address')
-
 class Sponsors(Base):
     __tablename__ = 'sponsors'
 

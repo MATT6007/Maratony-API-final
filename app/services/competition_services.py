@@ -1,16 +1,16 @@
 from typing import Type
-
 from sqlalchemy.orm import Session
 from fastapi import Depends
 from fastapi_pagination import Page
-
 from repositories import competition_repository
+from repositories import runners_repository
 from models.competition import Competition
 from schemas import competition_schema
 
 class CompetitionService:
-    def __init__(self, competition_repository: competition_repository.CompetitionRepository = Depends()):
+    def __init__(self, competition_repository: competition_repository.CompetitionRepository = Depends(), runners_repository: runners_repository.RunnerRepository = Depends()):
         self.competition_repository = competition_repository
+        self.runners_repository = runners_repository
 
     def get_competition(self, competition_id: int) -> Type[Competition] | None:
         return self.competition_repository.get_competition(competition_id)
@@ -21,10 +21,28 @@ class CompetitionService:
     def create_competition(self, competition_create: competition_schema.CompetitionCreate) -> Competition:
         return self.competition_repository.create_competition(competition_create)
 
-    # def update_address(self, address_id: int, address_update: address_schema.AddressUpdate) -> Type[Address] | None:
-    #     return self.address_repository.update_address(address_id, address_update)
+    def delete_competition(self, competition_id: int) -> Type[Competition] | None:
+        return self.competition_repository.delete_competition(competition_id)
 
-    # def delete_address(self, address_id: int) -> Type[Address] | None:
-    #     return self.address_repository.delete_address(address_id)
+    def add_runner_result(self, runner_id: int, competition_id: int, full_time, half_time, is_started, is_disqualified):
+        runner = self.runners_repository.get_runner(runner_id)
+        competition = self.competition_repository.get_competition(competition_id)
+
+        if not runner or not competition:
+            raise HTTPException(status_code=404, detail="Runner or competition not found")
+
+        result = self.competition_repository.create_runner_result(
+            runner=runner,
+            competition=competition,
+            full_time=full_time,
+            half_time=half_time,
+            is_started=is_started,
+            is_disqualified=is_disqualified
+        )
+
+        return result
+
+    def get_results_for_competition(self,competition_id: int):
+        return self.competition_repository.get_results_for_competition(competition_id)
 
 

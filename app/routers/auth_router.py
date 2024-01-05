@@ -53,7 +53,6 @@ def register_user(user_data: RunnerCreateRequest,
         image_url=user_data.image_url,
         password=get_password_hash(user_data.password),
         club=user_data.club
-        # role=Role.USER,
     )
     created_runner = runner_service.save(runner)
     return created_runner

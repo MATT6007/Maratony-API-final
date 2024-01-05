@@ -13,8 +13,17 @@ class CompetitionBase(BaseModel):
 class CompetitionCreate(CompetitionBase):
     pass
 
+class Competition(CompetitionBase):
+    pass
+
 class CompetitionUpdate(CompetitionBase):
     pass
+
+class RunnerResultCreate(BaseModel):
+    full_time: str
+    half_time: str
+    is_started: bool
+    is_disqualified: bool
 
 class Competition(CompetitionBase):
     ID_competition: int

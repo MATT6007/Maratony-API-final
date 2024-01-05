@@ -1,10 +1,8 @@
 from typing import Type
 from typing import List
-
 from sqlalchemy.orm import Session
 from fastapi import Depends
 from fastapi_pagination import Page, Params
-
 from repositories import address_repository
 from models.address import Address
 from schemas import address_schema

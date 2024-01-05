@@ -1,21 +1,16 @@
 from datetime import timedelta, datetime
-
 from jose import jwt
 from passlib.context import CryptContext
-
 from config.settings import settings
 from models.runner import Runner
 
 pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
 
-
 def verify_password(plain_password, hashed_password):
     return pwd_context.verify(plain_password, hashed_password)
 
-
 def get_password_hash(password):
     return pwd_context.hash(password)
-
 
 def authenticate_user(runner: Runner, password: str):
     if not runner:
@@ -23,7 +18,6 @@ def authenticate_user(runner: Runner, password: str):
     if not verify_password(password, runner.password):
         return False
     return runner
-
 
 def create_access_token(data: dict, expires_delta: timedelta | None = None):
     to_encode = data.copy()

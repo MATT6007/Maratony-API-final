@@ -9,9 +9,6 @@ class AddressCreate(AddressBase):
     pass 
     
 class AddressUpdate(AddressBase):
-    # city: str = None
-    # street: str = None
-    # postalCode: str = None
     pass
 
 class Address(AddressBase):

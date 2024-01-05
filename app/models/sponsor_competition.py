@@ -4,16 +4,6 @@ from sqlalchemy.ext.declarative import declarative_base
 
 from dependencies.database import Base
 
-# class SponsorCompetition(Base):
-#     __tablename__ = 'sponsor_competition'
-
-#     ID_sponsor = Column(Integer, ForeignKey('sponsors.ID_sponsor'), primary_key=True)
-#     ID_competition = Column(Integer, ForeignKey('competition.ID_competition'), primary_key=True)
-#     amountUSD = Column(Integer, nullable=False)
-    
-#     sponsor = relationship('Sponsors', back_populates='sponsor_competition')
-#     competition = relationship('Competition', back_populates='sponsor_competition')
-
 class SponsorCompetition(Base):
     __tablename__ = 'sponsor_competition'
 

@@ -10,8 +10,8 @@ class Results(Base):
     full_time = Column(String(9), nullable=False)
     half_time = Column(String(9), nullable=False)
     
-    ID_runner = Column(Integer, ForeignKey('runners.ID_runner'))
-    runner = relationship('Runner', back_populates='results')
+    ID_runner = Column(Integer, ForeignKey('runner.ID_runner'))
+    runner = relationship('Runner', backref='results')
     
     ID_competition = Column(Integer, ForeignKey('competition.ID_competition'))
-    competition = relationship('Competition', back_populates='results')
+    competition = relationship('Competition', backref='results')

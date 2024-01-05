@@ -25,7 +25,6 @@ class AddressRepository:
         return self.db.query(Address).filter(Address.ID_address == address_id).first()
 
     def get_addresses(self) -> Page[Address]:
-        # return self.db.query(Address).all()
         query = self.db.query(Address)
         return paginate(query)
         
